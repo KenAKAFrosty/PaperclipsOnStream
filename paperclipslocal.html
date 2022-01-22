@@ -16,29 +16,7 @@
     </head>
     
     <body>
-        
-<!--     <audio id="threnody1">
-        <source src="test.mp3" type="audio/mpeg">
-        
-    </audio>   -->  
 
-    <div id="mobile">
-        <div id="mobile-content">
-            <div id="mobile-title">
-                <img src="./paperclipslocal_files/mobile-title.png">
-            </div>
-            <div id="mobile-main-text">
-                The web version of this game was<br> 
-                not designed to work on phones.<br>
-                Grab the mobile version below.
-            </div>
-            <div id="mobile-badges">
-                <a href="https://itunes.apple.com/us/app/universal-paperclips/id1300634274?ls=1&amp;mt=8"><img src="./paperclipslocal_files/apple_badge.svg" id="apple_badge"></a>
-                <a href="https://play.google.com/store/apps/details?id=com.everybodyhouse.paperclipsuniquetest"><img src="./paperclipslocal_files/google_badge.svg" id="google_badge"></a>
-            </div>
-        </div> <!-- END mobile-content -->
-        
-    </div> <!-- END mobile -->
         
     <div id="page">
         
@@ -50,15 +28,7 @@
         </div>
         
         <div id="consoleDiv">
-            
-            <div id="giftShopDiv" class="shop">
-                
-                Mobile Version: <a href="https://t.co/t7YJKgiQpr" target="_blank">iPhone</a> / <a href="https://t.co/vtIAcdIYEj" target="_blank">Android</a><br>    
-                
-                T-Shirts: <a href="https://teespring.com/stores/universal-paperclips" target="_blank">Gift Shop</a> 
-                
-            </div>
-
+         
             <p class="consoleOld"> 
                 <span>&nbsp;.&nbsp;</span><span id="readout5"></span><br>
                 <span>&nbsp;.&nbsp;</span><span id="readout4"></span><br>
@@ -66,11 +36,7 @@
                 <span>&nbsp;.&nbsp;</span><span id="readout2">Welcome to Universal Paperclips</span><br>
             </p>
             <p class="console"> 
-                <span>&nbsp;&gt;&nbsp;</span><span id="readout1" style="
-    font-family: &quot;Century Gothic&quot;;
-">AutoClippers available for purchase</span><span id="cursor" class="pulsate" style="
-    font-family: &quot;Century Gothic&quot;;
-">|</span>
+                <span>&nbsp;&gt;&nbsp;</span><span id="readout1">AutoClippers available for purchase</span><span id="cursor" class="pulsate">|</span>
             </p>
             
         </div> 
@@ -83,16 +49,14 @@
             
             </div>        
         <div class="toolTip">
+            
         <span id="clipCountCrunched" class="toolTipText">306.0</span>    
         <h2>Paperclips: <span id="clips">306</span></h2>
         </div>
             
         </div>    
-            
-        <div id="leftColumn">
-        
-        <button class="button2" id="btnMakePaperclip" onclick="clipClick(1)">Make Paperclip</button><br>
-        <br>
+         
+        <div id="leftColumn" class="main-column">
         
         <div id="creationDiv" style="display: none;">
         
@@ -105,9 +69,9 @@
         </div>  
         
         <div id="clipsPerSecDiv">
-        Clips per Second: <span id="clipmakerRate2">0</span><br>
+        Clips per Second: <br><span id="clipmakerRate2">0</span>
         </div>        
-        
+
         <div id="tothDiv" style="display: none;">    
         Unused Clips: <span id="unusedClipsDisplay">0</span><br>
         </div>
@@ -265,23 +229,25 @@
         <hr>
         
             
-        Available Funds: $ <span id="funds">44.52</span><br>
+        Available Funds: <br>💰 <span id="funds">44.52</span><br>
         <div id="revPerSecDiv" style="display: none;">  
            
         Avg. Rev. per sec: $ <span id="avgRev">0.24</span><br>
         Avg. Clips Sold per sec: <span id="avgSales">1</span><br>    
             
         </div>  
-        Unsold Inventory: <span id="unsoldClips">8</span><br> 
+        Unsold Inventory:<br>📎<span id="unsoldClips">8</span><br> 
             
-        <button class="button2" id="btnLowerPrice" onclick="lowerPrice()">lower</button>
-        <button class="button2" id="btnRaisePrice" onclick="raisePrice()">raise</button>
-        Price per Clip: $ <span id="margin">0.22</span><br>
+        Public Demand: <br>📢<span id="demand">36</span>%<br>
+        Price per Clip: 💲 <span id="margin">0.22</span><br>
+        <div class="price-adjustment">
+        <button class="button2" id="btnLowerPrice" onclick="lowerPrice()">Lower Price</button>
+        <button class="button2" id="btnRaisePrice" onclick="raisePrice()">Raise Price</button>
+        </div>
             
-        Public Demand: <span id="demand">36</span>%<br>
         <br>    
         
-        <button class="button2" id="btnExpandMarketing" onclick="buyAds()" disabled="">Marketing</button> <span class="engineText6"> Level: </span><span class="engineText6" id="marketingLvl">1</span><br>
+        📺<button class="button2" id="btnExpandMarketing" onclick="buyAds()" disabled="">Up Marketing</button><span class="engineText6"> Lvl: </span><span class="engineText6" id="marketingLvl">1</span><br>
         Cost: $ <span id="adCost">100.00</span><br>
         <br>    
         
@@ -292,8 +258,8 @@
         <div id="manufacturingDiv">
         <b>Manufacturing</b><br>
         <hr>
-        
-        Clips per Second: <span id="clipmakerRate">1</span><br>
+        <button class="button2" id="btnMakePaperclip" onclick="clipClick(1)">Make Paperclip</button><br>
+         Clips per Second: <br>⏱<span id="clipmakerRate">1</span><br>
         <br> 
             
         <div id="wireBuyerDiv" style="display: none;">
@@ -301,7 +267,7 @@
         </div>
           
             
-        <button class="button2" id="btnBuyWire" onclick="buyWire()">Wire</button> <span class="engineText6" id="wire">694</span><span class="engineText6"> inches</span><br> 
+        <button class="button2" id="btnBuyWire" onclick="buyWire()">Wire</button> 🔩 <span class="engineText6" id="wire">694</span><span class="engineText6"> in.</span><br> 
         Cost: $ <span id="wireCost">15</span><br>
         <br>
             
@@ -356,7 +322,7 @@
             
 <!--Right Column-->
             
-        <div id="middleColumn">
+        <div id="middleColumn" class="main-column">
             
             
             
@@ -472,7 +438,7 @@
         </div>      
         </div>    
         
-        <div id="rightColumn">
+        <div id="rightColumn" class="main-column">
         
         <div class="engine" id="investmentEngine" style="display: none;">
         
