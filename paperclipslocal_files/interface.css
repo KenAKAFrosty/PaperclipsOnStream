@@ -20,15 +20,17 @@ hr{
   width: 700px;
   margin-left: 5px;
   font-family:  "Lucida Console";
-  height: 95px;
+  height:20px;
   margin-top: -5px;
 }
 p.console{
     margin-top: 0;
+    font-size: 0.8rem;
 }
 p.consoleOld{
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin-bottom: 0;
+    display: none;
 }
 
 #topDiv {
@@ -76,7 +78,7 @@ p.consoleOld{
 }
 
 div.animated-user-name{ 
-    transition: 2000ms;
+    transition: 2000ms ease-in-out;
     opacity: 0;
     position:absolute;
     color: white;
@@ -87,6 +89,7 @@ div.animated-user-name.faded-in{
 }
  
 .button2{
+    cursor:pointer;
     font-size: 1.2rem;
     background-color: #ffffff;
     border-radius:4px;
@@ -94,22 +97,44 @@ div.animated-user-name.faded-in{
     outline: none;
     border: none;
 }
+.engine2 .clean2{
+    font-size: 1rem;
+}
+#btnNewTournament{
+    height: 50px;
+}
+#tournamentResultsTable table{
+    font-size: 1rem;
+}
+#tournamentResultsTable table.table2{
+    font-size: 1rem;
+    color: black;
+}
+#tournamentStuff{
+    opacity: 1;
+    display: block;
+    font-size: 1rem;
+    color: black;
+}
 
+#btnAddProc,#btnAddMem{
+    min-width: 70px;
+}
+#processorDisplay{
+    margin-bottom:10px;
+}
+#memoryDisplay{
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
 .price-adjustment button{
     font-size: 1.1rem;
 }
-
+#creativityDiv{
+    margin-bottom: -20px;
+}
 #btnMakeProbe {
     margin-bottom: 2px;
-}
-
-#btnAddProc {
-    width: 70px;
-    margin-bottom: 1px;
-}
-
-#btnAddMem {
-    width: 70px;
 }
 
 #btnEntertainSwarm {
@@ -178,7 +203,9 @@ h2 {
     font-size: 14px;
     text-align: right;
 }
-
+#trustDiv{
+    margin-bottom: -15px;
+}
 .toolTip {
     position: relative;
     display: inline-block;
@@ -284,12 +311,10 @@ h2 {
     width:100%;
     z-index: 10;
 }
-
-#tournamentStuff {
-    height: 58px;
-
+#tournamentResultsTable{
+    opacity:1;
+    display: block;
 }
-
 #tournamentLabel {
     margin-bottom: 5px;
 }
@@ -400,17 +425,34 @@ canvas {
 
 
 #investmentDiv1 {
+display: inline-block;
   float: left;
-  width: 64px; 
+  min-width: 64px; 
   line-height: 20%;    
 }
+.table1 th{
+    font-size: 1.2rem;
+}
 
+.table1 td{
+    background-color: white;
+    text-shadow:none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+}
 #investmentDiv2 {
+    display: inline-block;
   float: left;
-  width: 65%; 
+  width: 55%; 
   text-align: top;
   margin-top: 0; 
   margin-left: 5px;    
+  
+}
+#investmentDiv2 .clean{
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #stratDiv1 {
@@ -462,6 +504,7 @@ canvas {
 }
 
 #tournamentManagement {
+    text-align: center;
     margin: 5px;
     margin-bottom: 10px;
 }
@@ -495,8 +538,8 @@ canvas {
     margin-bottom: 10;
     border: 1px solid grey;
     padding: 5; 
-    height: 70px;
-    
+    min-height: 70px;
+    display: none;
 }
 
 .qChip {
@@ -615,13 +658,24 @@ table.table1 tr:nth-child(even) {
 table.table2 {
     border-collapse: collapse;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 11;
+    font-size: 1rem;
     margin-bottom: 0;
     margin-top: 0;
     margin-right: 0px;
     margin-left: 0px;
     width: 70%;
 
+}
+table.table2 td{
+    color:black;
+}
+table.table2 td{
+    color:white;
+    text-shadow: 0px 0px 1px black;
+    text-shadow: 0px 0px 2px black;
+    text-shadow: 0px 0px 3px black;
+    text-shadow: 0px 0px 6px black;
+    text-shadow: 0px 0px 9px black;
 }
 
 table.table3 {
@@ -711,35 +765,15 @@ p.hypnoDrone {
     }
 }
 
-
-.projectButton {
-    border-radius: 0px;
-    display: block;
-    height: 60px;
-    width: 275px;
-    background: #c8c8c8;
-    border: 1px solid rgba(0, 0, 0, 1);
+.projectButton{
+    font-family: Outfit;
+    font-size: 1.05rem;
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 5px 5px 5px;
     outline: none;
-    margin-bottom: 6px;
-}
-
-.projectButton:hover {
-    display: block;
-    height: 60px;
-    width: 275px;
-    background: #c8c8c8;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.projectButton:active {
-    display: block;
-    height: 60px;
-    width: 275px;
-    background: #d1d1d1;
-    border: 1px solid rgba(0, 0, 0, 1);
-    
-}
-
-.projectButton:disabled {
     border: none;
+}
+.projectButton span{
+    font-size: 1.05rem;
 }

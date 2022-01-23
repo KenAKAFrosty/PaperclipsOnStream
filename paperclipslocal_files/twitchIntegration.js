@@ -3,21 +3,23 @@ console.log('connected')
 let currentRewardsMemo = {}
 let currentAvailableButtonsMemo = {}
 let userClicks = {}
-
+const streamerName = "FrostyyPaws"
 run();
 
 async function run() {
+    if (localStorage.userClicks) {
+        userClicks = JSON.parse(localStorage.userClicks);
+    }
     ComfyJS.onReward = (user, reward, cost, message, extra) => {
         handleRewardRedemption(user, reward, cost, message, extra)
     }
-    ComfyJS.Init("FrostyyPaws", oAuthToken)
+    ComfyJS.Init(streamerName, oAuthToken)
     await storeCurrentChannelRewardsInMemo();
     storeCurrentButtonsInMemo();
     await deleteAllCurrentChannelRewards();
-    createChannelRewardsForEachCurrentButton();
+    createChannelRewardForEachCurrentButton();
     setInterval(() => {
         const buttonsChanged = checkIfButtonsHaveChanged();
-        console.log(buttonsChanged);
         if (buttonsChanged) {
             storeCurrentButtonsInMemo()
             adjustCurrentRewards();
@@ -27,12 +29,14 @@ async function run() {
 
 function handleRewardRedemption(user, reward, cost, message, extra) {
     console.log(user, reward, cost, message, extra)
+    if (user === streamerName) {return}
     if (!userClicks[user]) { userClicks[user] = {} }
     if (!userClicks[user][reward]) {
         userClicks[user][reward] = 1
     } else {
         userClicks[user][reward]++
     }
+    localStorage.userClicks = JSON.stringify(userClicks);
     const button = currentAvailableButtonsMemo[reward];
     button.click();
     animateUserClick(user, button);
@@ -70,7 +74,14 @@ function storeCurrentButtonsInMemo() {
 function getAllCurrentlyRenderedButtons() {
     const buttons = Array.from(document.querySelectorAll('button'));
     const rendered = buttons.filter(e => e.offsetParent && !e.disabled);
-    return rendered;
+    const mapped = rendered.map(e => { 
+        if ( e.querySelector('span') ){ 
+            return e.querySelector('span');
+        } else { 
+            return e;
+        }
+    })
+    return mapped;
 }
 
 
@@ -82,11 +93,11 @@ function shallowArraysAreEqual(array1, array2) {
     return true;
 }
 
-async function createChannelRewardsForEachCurrentButton() {
+async function createChannelRewardForEachCurrentButton() {
     for (buttonName in currentAvailableButtonsMemo) {
         ComfyJS.CreateChannelReward(clientId, {
             title: buttonName,
-            cost: "100",
+            cost: "20",
             "background_color": "#FFFFFF"
         }).then(response => {
             currentRewardsMemo[response.title] = response
@@ -145,7 +156,7 @@ function adjustCurrentRewards() {
         if (!rewardNames.includes(buttonName)) {
             ComfyJS.CreateChannelReward(clientId, {
                 title: buttonName,
-                cost: "100",
+                cost: "20",
                 "background_color": "#FFFFFF"
             }).then(response => {
                 currentRewardsMemo[response.title] = response
@@ -159,5 +170,5 @@ function adjustCurrentRewards() {
             delete currentRewardsMemo[rewardName]
         }
     }
-    
+
 }
