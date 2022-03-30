@@ -30,13 +30,18 @@ async function run() {
 function handleRewardRedemption(user, reward, cost, message, extra) {
     console.log(user, reward, cost, message, extra)
     if (user === streamerName) {return}
+
+    //this is just tracking user clicks over time for fun leaderboard type stuff
     if (!userClicks[user]) { userClicks[user] = {} }
     if (!userClicks[user][reward]) {
         userClicks[user][reward] = 1
     } else {
         userClicks[user][reward]++
     }
+
     localStorage.userClicks = JSON.stringify(userClicks);
+
+    //ok here's the actual juicy functionality
     const button = currentAvailableButtonsMemo[reward];
     button.click();
     animateUserClick(user, button);
