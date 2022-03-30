@@ -3,7 +3,7 @@ console.log('connected')
 let currentRewardsMemo = {}
 let currentAvailableButtonsMemo = {}
 let userClicks = {}
-const streamerName = "FrostyyPaws"
+const streamerName = "KenAKAFrosty"
 run();
 
 async function run() {
